@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @inss %>
+
+<div>
+  <%= link_to "Edit this inss", edit_inss_path(@inss) %> |
+  <%= link_to "Back to insses", insses_path %>
+
+  <%= button_to "Destroy this inss", @inss, method: :delete %>
+</div>

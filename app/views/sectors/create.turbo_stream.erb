@@ -1,0 +1,3 @@
+<%= turbo_stream.prepend "sectors", partial: "sectors/sector", locals: { sector: @sector } %>
+<%= turbo_stream.replace "notice", partial: "layouts/flash" %>
+<%= turbo_stream.update Sector.new, "" %>

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  type_event: MyString
+  formula: MyString
+  inss: false
+  irrf: false
+  rpps: false
+
+two:
+  description: MyString
+  type_event: MyString
+  formula: MyString
+  inss: false
+  irrf: false
+  rpps: false

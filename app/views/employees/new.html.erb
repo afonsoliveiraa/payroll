@@ -1,0 +1,11 @@
+<main>
+  <%= link_to "Back", employees_path %>
+
+  <div class="header">
+    <h1>New employee</h1>
+  </div>
+
+  <%= turbo_frame_tag @employee do %>
+    <%= render "form", employee: @employee %>
+  <% end %>
+</main>

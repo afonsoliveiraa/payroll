@@ -1,0 +1,36 @@
+<%= turbo_stream_from "competences" %>
+
+<main>
+
+
+  <div class="row g-5">
+    <div class="col-md-12">
+
+
+      <div class="header py-4">
+        <%= link_to "New competence", new_competence_path, data: { turbo_frame: dom_id(Competence.new) } %>
+      </div>
+
+
+      <%= turbo_frame_tag Competence.new %>
+      <%= turbo_frame_tag "competences" do %>
+      
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gx-3">
+          
+            <% @competences.each do |competence| %>
+            <div class="col ">
+              <%= render competence %>
+              </div>
+            <% end %>
+          
+        </div>
+
+        <div class="py-4 float-end">
+            <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+
+</main>

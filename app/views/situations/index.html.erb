@@ -1,0 +1,29 @@
+<%= turbo_stream_from "situations" %>
+
+<main>
+
+
+  <div class="row g-5">
+
+    <div class="col-md-6 mx-auto rounded-0 ">
+
+      <div class="header py-4 ">
+        <%= link_to "New situation", new_situation_path, data: { turbo_frame: dom_id(Situation.new) } %>
+      </div>
+      
+
+      <%= turbo_frame_tag Situation.new %>
+      <%= turbo_frame_tag "situations" do %>
+        <%= render @situations %>
+
+      <% end %>
+
+      <div class="py-4 float-end">
+          <%== pagy_bootstrap_nav(@pagy) %>
+      </div>
+
+    </div>
+        
+  </div>
+
+</main>

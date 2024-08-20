@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @situation %>
+
+<div>
+  <%= link_to "Edit this situation", edit_situation_path(@situation) %> |
+  <%= link_to "Back to situations", situations_path %>
+
+  <%= button_to "Destroy this situation", @situation, method: :delete %>
+</div>

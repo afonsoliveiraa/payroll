@@ -1,0 +1,9 @@
+<main>
+  <div class="header">
+    <%= link_to "Back to events", events_path %>
+  </div>
+
+  <%= turbo_frame_tag @event do %>
+    <%= render "form", event: @event %>
+  <% end %>
+</main>

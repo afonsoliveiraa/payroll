@@ -1,0 +1,11 @@
+<main>
+  <%= link_to "Back", situations_path %>
+
+  <div class="header">
+    <h1>New situation</h1>
+  </div>
+
+  <%= turbo_frame_tag @situation do %>
+    <%= render "form", situation: @situation %>
+  <% end %>
+</main>

@@ -1,0 +1,11 @@
+<main>
+  <%= link_to "Back", employee_notes_path %>
+
+  <div class="header">
+    <h1>New note</h1>
+  </div>
+
+  <%= turbo_frame_tag @note do %>
+    <%= render "form", note: @note %>
+  <% end %>
+</main>

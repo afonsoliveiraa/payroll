@@ -1,0 +1,29 @@
+<%= turbo_stream_from "natures" %>
+
+<main>
+
+
+  <div class="row g-5">
+
+    <div class="col-md-6 mx-auto rounded-0 ">
+
+      <div class="header py-4 ">
+        <%= link_to "New nature", new_nature_path, data: { turbo_frame: dom_id(Nature.new) } %>
+      </div>
+      
+
+      <%= turbo_frame_tag Nature.new %>
+      <%= turbo_frame_tag "natures" do %>
+        <%= render @natures %>
+
+      <% end %>
+
+      <div class="py-4 float-end">
+          <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
+
+    </div>
+        
+  </div>
+
+</main>

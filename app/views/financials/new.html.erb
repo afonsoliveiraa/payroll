@@ -1,0 +1,11 @@
+<main>
+  <%= link_to "Back", employee_notes_path %>
+
+  <div class="header">
+    <h1>New financial</h1>
+  </div>
+
+  <%= turbo_frame_tag @financial do %>
+    <%= render "form", financial: @financial %>
+  <% end %>
+</main>

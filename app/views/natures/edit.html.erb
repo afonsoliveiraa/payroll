@@ -1,0 +1,9 @@
+<main>
+  <div class="header">
+    <%= link_to "Back to natures", natures_path %>
+  </div>
+
+  <%= turbo_frame_tag @nature do %>
+    <%= render "form", nature: @nature %>
+  <% end %>
+</main>

@@ -1,0 +1,9 @@
+<main>
+  <div class="header">
+    <%= link_to "Back to financials", employee_notes_path %>
+  </div>
+
+  <%= turbo_frame_tag @role do %>
+    <%= render "form", role: @role %>
+  <% end %>
+</main>

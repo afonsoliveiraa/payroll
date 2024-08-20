@@ -1,0 +1,29 @@
+<%= turbo_stream_from "events" %>
+
+<main>
+
+
+  <div class="row g-5">
+
+    <div class="col-md-6 mx-auto rounded-0 ">
+
+      <div class="header py-4 ">
+        <%= link_to "New event", new_event_path, data: { turbo_frame: dom_id(Event.new) } %>
+      </div>
+      
+
+      <%= turbo_frame_tag Event.new %>
+      <%= turbo_frame_tag "events" do %>
+        <%= render @events %>
+
+      <% end %>
+
+      <div class="py-4 float-end">
+          <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
+
+    </div>
+        
+  </div>
+
+</main>

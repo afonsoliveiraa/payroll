@@ -1,0 +1,21 @@
+<%= turbo_frame_tag financial do %>
+
+<div class="col-md-11 mx-auto mt-4">
+
+
+      <div class="financial" id="<%= dom_id financial %>">
+ 
+        <tr>
+          <th scope="row"><%= financial.event.id %></th>
+          
+          <td><%= financial.event.description %></td>
+          <td><%= financial.reference.strftime("%b de %Y") %></td>
+          <td><%= financial.value %></td>
+        </tr>
+
+      </div>
+
+
+</div>
+
+<% end %>

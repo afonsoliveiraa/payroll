@@ -1,0 +1,25 @@
+<%= turbo_stream_from "roles" %>
+
+<main>
+
+  <div class="row">
+    <div class="col-md-6 mx-auto ">
+
+      <div class="header py-4">
+        <%= link_to "New role", new_role_path, data: { turbo_frame: dom_id(Role.new) } %>
+      </div>
+
+      <%= turbo_frame_tag Role.new %>
+      <%= turbo_frame_tag "roles" do %>
+        <%= render @roles %>
+      <% end %>
+
+      <div class="py-4 float-end">
+        <%== pagy_bootstrap_nav(@pagy) %>
+      </div>
+
+
+    </div>
+  </div>
+
+</main>

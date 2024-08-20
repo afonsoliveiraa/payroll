@@ -1,0 +1,9 @@
+<main>
+  <div class="header">
+    <%= link_to "Back to departments", departments_path %>
+  </div>
+
+  <%= turbo_frame_tag @department do %>
+    <%= render "form", department: @department %>
+  <% end %>
+</main>

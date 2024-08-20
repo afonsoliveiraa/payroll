@@ -1,0 +1,3 @@
+<%= turbo_stream.prepend "departments", partial: "departments/department", locals: { department: @department } %>
+<%= turbo_stream.replace "notice", partial: "layouts/flash" %>
+<%= turbo_stream.update Department.new, "" %>

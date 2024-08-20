@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid px-0 text-uppercase">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%= root_path %>">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= natures_path %>">Naturezas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= situations_path %>">Situações</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= roles_path %>">Funções</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= departments_path %>">Secretarias</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="<%= root_path %>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tabelas
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<%= insses_path %>">Inss</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= competences_path %>">Competências</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= events_path %>">Eventos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= employees_path %>">Servidores</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

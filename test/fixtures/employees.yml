@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cpf: MyString
+  date_of_birth: 2024-07-08
+  admission_date: 2024-07-08
+  termination: 2024-07-08
+  role: one
+  department: one
+  sector: one
+  address: MyString
+  phone: MyString
+  pension: MyString
+  nature: one
+  situation: one
+
+two:
+  name: MyString
+  cpf: MyString
+  date_of_birth: 2024-07-08
+  admission_date: 2024-07-08
+  termination: 2024-07-08
+  role: two
+  department: two
+  sector: two
+  address: MyString
+  phone: MyString
+  pension: MyString
+  nature: two
+  situation: two

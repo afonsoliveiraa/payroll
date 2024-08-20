@@ -1,0 +1,123 @@
+<div class="col-md-12">
+  <div class="card border-0 shadow mt-4">
+    <div class="card-body p-4">
+
+      <%= form_with(model: employee, class: 'needs-validation', local: true) do |form| %>
+        <% if employee.errors.any? %>
+          <div class="alert alert-danger">
+            <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+            <ul>
+              <% employee.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+
+        <div class="d-flex justify-content-between">
+
+          <div class="d-flex align-items-center">
+            <% if employee.avatar.attached? %>
+              <%= image_tag employee.avatar, class: "rounded-circle", style: "width: 48px; height: 48px;" %>
+            <% end %>
+            <div class="ms-3 d-flex align-items-baseline">
+              <p class="fs-6 mb-0 me-3"><%= employee.id %></p>
+              <div>
+                <p class="fs-6 mb-0"><%= employee.name %></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-start">
+            <%= link_to employees_path, class: "btn " do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-up " viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
+              </svg>
+            <% end %>
+          </div>
+
+        </div>
+
+
+        <div class="mb-3 mt-3">
+          <%= form.label :avatar, class: "form-label" %>
+          <%= form.file_field :avatar, class: "form-control", placeholder: "Avatar" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
+          <%= form.label :name, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.text_field :cpf, class: "form-control", placeholder: "CPF" %>
+          <%= form.label :cpf, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.date_field :date_of_birth, class: "form-control", placeholder: "Date of Birth" %>
+          <%= form.label :date_of_birth, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.date_field :admission_date, class: "form-control", placeholder: "Admission Date" %>
+          <%= form.label :admission_date, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.date_field :termination, class: "form-control", placeholder: "Termination Date" %>
+          <%= form.label :termination, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.select :role_id, options_for_select(Role.all.map { |r| [r.description, r.id] }, selected: employee.role), {}, class: "form-select", placeholder: "Role" %>
+          <%= form.label :role_id, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.select :department_id, options_for_select(Department.all.map { |d| [d.description, d.id] }, selected: employee.department), {}, class: "form-select", placeholder: "Department" %>
+          <%= form.label :department_id, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.select :sector_id, options_for_select(Sector.all.map { |s| [s.description, s.id] }, selected: employee.sector), {}, class: "form-select", placeholder: "Sector" %>
+          <%= form.label :sector_id, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.text_field :address, class: "form-control", placeholder: "Address" %>
+          <%= form.label :address, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.text_field :phone, class: "form-control", placeholder: "Phone" %>
+          <%= form.label :phone, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.select :pension, options_for_select([['INSS', 'INSS'], ['RPPS', 'RPPS']], selected: employee.pension), {}, class: "form-select", placeholder: "Pension" %>
+          <%= form.label :pension, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.select :nature_id, options_for_select(Nature.all.map { |n| [n.description, n.id] }, selected: employee.nature), {}, class: "form-select", placeholder: "Nature" %>
+          <%= form.label :nature_id, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.select :situation_id, options_for_select(Situation.all.map { |s| [s.description, s.id] }, selected: employee.situation), {}, class: "form-select", placeholder: "Situation" %>
+          <%= form.label :situation_id, class: "form-label", style: "display: block" %>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <div class="w-50">
+            <%= form.submit "Save Employee", class: 'btn btn-lg btn-outline-dark w-100 rounded' %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

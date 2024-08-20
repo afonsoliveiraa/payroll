@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Financials</h1>
+
+<div id="financials">
+  <% @financials.each do |financial| %>
+    <%= render financial %>
+    <p>
+    </p>
+  <% end %>
+</div>
+

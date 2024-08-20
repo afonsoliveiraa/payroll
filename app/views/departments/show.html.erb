@@ -1,0 +1,35 @@
+<main>
+
+  <div class="row">
+    <div class="col-md-5">
+      <%= link_to "← Voltar para secretarias", departments_path, class: "" %>
+      <div class="d-flex justify-content-between mt-4">
+          <div class="d-flex align-items-baseline">
+            <p class="mb-0 me-3 fw-medium"><%= @department.id %></p>
+            <div class="ms-3">
+              <p class= "mb-0 text-decoration-none fw-medium"> <%= @department.description %></p>
+              <p class="mb-0 text-secondary small"><%= @department.address %></p>
+              <p class="mb-0 text-secondary small">Telefone <%= @department.phone %></p>
+            </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+<%= turbo_stream_from "sectors" %>
+  <div class="header mt-5">
+    <%= link_to "New sector", new_department_sector_path(@department), data: { turbo_frame: dom_id(Sector.new) } %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 mt-2">
+      <p class="">Setores vinculados a secretaria</p>
+      <%= turbo_frame_tag Sector.new %>
+      <%= turbo_frame_tag "sectors" do %>
+        <%= render @sectors %>
+      <% end %>
+    </div>
+  </div>
+
+</main>

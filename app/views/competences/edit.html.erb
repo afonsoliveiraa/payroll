@@ -1,0 +1,9 @@
+<main>
+  <div class="header">
+    <%= link_to "Back to competences", competences_path %>
+  </div>
+
+  <%= turbo_frame_tag @competence do %>
+    <%= render "form", competence: @competence %>
+  <% end %>
+</main>

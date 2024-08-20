@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  star_date: 2024-07-09
+  end_date: 2024-07-09
+  lower_limit: 9.99
+  upper_limit: 9.99
+  aliquot: 9.99
+
+two:
+  star_date: 2024-07-09
+  end_date: 2024-07-09
+  lower_limit: 9.99
+  upper_limit: 9.99
+  aliquot: 9.99

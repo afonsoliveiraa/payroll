@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @nature %>
+
+<div>
+  <%= link_to "Edit this nature", edit_nature_path(@nature) %> |
+  <%= link_to "Back to natures", natures_path %>
+
+  <%= button_to "Destroy this nature", @nature, method: :delete %>
+</div>

@@ -1,0 +1,9 @@
+<main>
+  <div class="header">
+    <%= link_to "Back to insses", insses_path %>
+  </div>
+
+  <%= turbo_frame_tag @inss do %>
+    <%= render "form", inss: @inss %>
+  <% end %>
+</main>

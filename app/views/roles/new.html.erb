@@ -1,0 +1,11 @@
+<main>
+  <%= link_to "Back", roles_path %>
+
+  <div class="header">
+    <h1>New role</h1>
+  </div>
+
+  <%= turbo_frame_tag @role do %>
+    <%= render "form", role: @role %>
+  <% end %>
+</main>

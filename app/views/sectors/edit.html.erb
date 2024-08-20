@@ -1,0 +1,9 @@
+<main>
+  <div class="header">
+    <%= link_to "Back to sectors", department_sectors_path %>
+  </div>
+
+  <%= turbo_frame_tag @sector do %>
+    <%= render "form", sector: @sector %>
+  <% end %>
+</main>

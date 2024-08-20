@@ -1,0 +1,82 @@
+<div class="row">
+
+  <div class="col-9">
+    
+    <%= link_to "← Voltar para servidores", employees_path, class: "" %>
+    <!-- Capa -->
+    <div class="card-header rounded mt-4" style="background-color: #d3d3d3; height: 160px; position: relative;">
+      <div class="position-absolute" style="bottom: -65px; left: 20px;">
+        <!-- Foto de Perfil -->
+        <% if @employee.avatar.attached? %>
+          <%= image_tag @employee.avatar, class: "rounded-circle img-thumbnail", style: "width: 130px; height: 130px;" %>
+        <% else %>
+          <%= image_tag "icon.PNG", alt: "Descrição da imagem", class: "rounded-circle img-thumbnail",style: "width: 130px; height: 130px;" %>
+        <% end %>
+      </div>
+    </div>
+    
+
+  </div>  
+
+</div>  
+
+<div class="row mt-5">
+
+  <div class="col-5 mt-4">
+      <div class="ms-3 d-flex align-items-baseline">
+    
+      <p class="fs-6 mb-0 me-3"><%= @employee.id %></p>
+      <div>
+        <p class="mb-0 "><%= @employee.name %></p>
+        <p class="mb-0 opacity-75 text-uppercase">CPF <%= @employee.cpf.gsub(/(\d{3})(\d{3})(\d{3})(\d{2})/, '\1.\2.\3-\4') %> • <%= @employee.nature.description %></p>
+        <p class="mb-0 opacity-75 text-uppercase">Admissão <%= @employee.admission_date.strftime("%d de %b %Y") %></p>
+        <p class="mb-0 opacity-75 text-uppercase"><%= @employee.department.description %> (<%= @employee.sector.description %>)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= turbo_stream_from "notes" %>
+<%= turbo_stream_from "financials" %>
+
+<main class="mt-5">
+
+  <div class="header">
+    <%= link_to "New note", new_employee_note_path(@employee), data: { turbo_frame: dom_id(Note.new) } %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 mt-5">
+      <p class="text-uppercase-normal pb-2">Apontamentos • <%= @notes.count %></p>
+      <%= turbo_frame_tag Note.new %>
+      <%= turbo_frame_tag "notes" do %>
+        <%= render @notes %>
+      <% end %>
+      
+    </div>
+  </div>
+
+</main>
+
+
+<main class="mt-5">
+
+  <div class="header">
+    <%= link_to "New financial", new_employee_financial_path(@employee), data: { turbo_frame: dom_id(Financial.new) } %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 mt-5 mb-5">
+      <p class="text-uppercase-normal pb-2">Financeira • <%= @financials.count %></p>
+      <%= turbo_frame_tag Financial.new %>
+      <%= turbo_frame_tag "Financials" do %>
+        <table class="table table-borderless">
+          <tbody>
+          <%= render @financials %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+
+</main>

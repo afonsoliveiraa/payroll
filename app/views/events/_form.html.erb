@@ -1,0 +1,81 @@
+<div class="col-md-12">
+  <div class="mt-4 rounded-0">
+    <div class="">
+
+      <%= form_with(model: event, class: 'needs-validation', local: true) do |form| %>
+        <% if event.errors.any? %>
+          <div class="alert alert-danger">
+            <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+            <ul>
+              <% event.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+          <div class="d-flex align-items-baseline">
+            <p class="fs-6 mb-0 me-3"><%= event.id %></p>
+            <div class="ms-3">
+              <p class="fs-6"><%= event.description %></p>
+            </div>
+          </div>
+
+          <%= link_to events_path, class: "btn " do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-up " viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
+            </svg>
+          <% end %>
+
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.text_field :description, class: "form-control", placeholder: "Description" %>
+          <%= form.label :description, class: "form-label" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.select :type_event, options_for_select([['Crédito', 'Crédito'], ['Débito', 'Débito']], selected: event.type_event), {}, class: "form-select", placeholder: "Type Event" %>
+          <%= form.label :type_event, class: "form-label" %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= form.select :formula, options_for_select([['Valor Informado', 'Valor Informado'], ['Vencimento Base', 'Vencimento Base'],['Bruto', 'Bruto']], selected: event.formula), {}, class: "form-select", placeholder: "Formula" %>
+          <%= form.label :formula, class: "form-label" %>
+        </div>
+
+        <div class="row g-2">
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <%= form.select :inss, options_for_select([['Sim', true], ['Não', false]], selected: event.inss), {}, class: "form-select", placeholder: "INSS" %>
+              <%= form.label :inss, class: "form-label" %>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <%= form.select :irrf, options_for_select([['Sim', true], ['Não', false]], selected: event.irrf), {}, class: "form-select", placeholder: "IRRF" %>
+              <%= form.label :irrf, class: "form-label" %>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <%= form.select :rpps, options_for_select([['Sim', true], ['Não', false]], selected: event.rpps), {}, class: "form-select", placeholder: "RPPS" %>
+              <%= form.label :rpps, class: "form-label" %>
+            </div>
+          </div>
+        </div>
+        
+        <div class="d-flex justify-content-center">
+          <div class="w-50">
+            <%= form.button class: 'btn btn-lg btn-outline-dark w-100 rounded' do %>
+              Save Event
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

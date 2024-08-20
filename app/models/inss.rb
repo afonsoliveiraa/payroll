@@ -1,0 +1,2 @@
+class Inss < ApplicationRecord
+end

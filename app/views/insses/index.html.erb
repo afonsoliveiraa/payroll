@@ -1,0 +1,29 @@
+<%= turbo_stream_from "insses" %>
+
+<main>
+
+
+  <div class="row g-5">
+
+    <div class="col-md-6 mx-auto rounded-0 ">
+
+      <div class="header py-4 ">
+        <%= link_to "New inss", new_inss_path, data: { turbo_frame: dom_id(Inss.new) } %>
+      </div>
+      
+
+      <%= turbo_frame_tag Inss.new %>
+      <%= turbo_frame_tag "insses" do %>
+        <%= render @insses %>
+
+      <% end %>
+
+      <div class="py-4 float-end">
+          <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
+
+    </div>
+        
+  </div>
+
+</main>

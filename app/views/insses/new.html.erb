@@ -1,0 +1,11 @@
+<main>
+  <%= link_to "Back", insses_path %>
+
+  <div class="header">
+    <h1>New inss</h1>
+  </div>
+
+  <%= turbo_frame_tag @inss do %>
+    <%= render "form", inss: @inss %>
+  <% end %>
+</main>
